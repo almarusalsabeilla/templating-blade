@@ -14,26 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-//Route::get('/', 'HomeController@form');
-Route::get('/register', 'AuthController@form');
-Route::post('/register', 'AuthController@welcome_pos');
-
-Route::get('/master', function() {
-    return view ('adminlte.master');
-});
-
-Route::get('/items', function() {
-    return view ('items.index');
-});
-
-Route::get('/items/create', function(){
-    return view('items.create');
-});
-
-Route::get('/', function(){
-    return view('items.home');
-});
-
-Route::get('/data-tables', function(){
-    return view('items.data-tables');
-});
+Route::get('/pertanyaan', 'PertanyaanController@index');
+Route::get('/pertanyaan/create', 'PertanyaanController@create');
+Route::post('/pertanyaan', 'PertanyaanController@store');
+Route::get('/jawaban/{pertanyaan_id}', 'JawabanController@index');
+Route::post('/jawaban/{pertanyaan_id', 'JawabanController@store');
+Route::get('/pertanyaan/{id}/edit', 'PertanyaanController@edit');
+Route::put('/pertanyaan/{id}', 'PertanyaanController@update');
+Route::delete('/pertanyaan', 'PertanyaanController@destroy');
